@@ -11,7 +11,6 @@ enum SkillValidationError: Error {
     case emptyName
     case emptyDescription
     case emptyTags
-    case emptyConten
+    case emptyContent
     case emptyVersion
-    
 }

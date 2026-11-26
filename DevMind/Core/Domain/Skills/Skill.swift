@@ -36,6 +36,32 @@ struct Skill: Identifiable {
         guard !name.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             throw SkillValidationError.emptyName
         }
+        
+        guard !description.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            throw SkillValidationError.emptyDescription
+        }
+        
+        guard !tags.isEmpty, tags.allSatisfy({
+            !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        }) else {
+            throw SkillValidationError.emptyTags
+        }
+        
+        guard !content.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            throw SkillValidationError.emptyContent
+        }
+        
+        guard !version.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+            throw SkillValidationError.emptyVersion
+        }
+        
+        self.id = id
+        self.name = name
+        self.description = description
+        self.category = category
+        self.tags = tags
+        self.content = content
+        self.version = version
     }
     
 }
